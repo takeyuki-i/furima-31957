@@ -39,17 +39,17 @@
 
 ## orders テーブル
 
-| Column | Type      | Options                         |
-| ------ | --------- | ------------------------------- |
-| item   | refrences | null: false , foreign_key: true |
-| user   | refrences | null: false , foreign_key: true |
-| order  | refrences | null: false , foreign_key: true |
+| Column      | Type      | Options                         |
+| ----------- | --------- | ------------------------------- |
+| item        | refrences | null: false , foreign_key: true |
+| user        | refrences | null: false , foreign_key: true |
+| information | refrences | null: false , foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :information
+- has_one    :information
 
 ## informations テーブル
 
@@ -61,7 +61,8 @@
 | addres1       | string    | null: false                     |
 | addres2       | string    |                                 |
 | tell_num      | string    | null: false                     |
+| order         | refrences | null: false , foreign_key: true |
 
 ### Association
 
-- has_many :orders
+- belongs_to :order
