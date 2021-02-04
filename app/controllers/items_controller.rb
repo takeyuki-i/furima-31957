@@ -1,12 +1,14 @@
 class ItemsController < ApplicationController
-  def new
-    # @item = Items.new(item_params)
-    # @item.save
-  end
-  
-  # private
-  
-  # def items_params
-  #   params.require(:item).permit(:item_name,:text,:category,:state,:delivery_fee,:delivery_area,:delivery_time,:price) 
-  # end
+
+def new
+  @item = Item.new
+  # (item_params)
+end
+
+# private
+
+# def item_params
+#   params.require(:item).permit(:image,:name,:text,:category_id,:state_id ,:delivery_fee_id ,:delivery_area_id ,:delivery_time_id ,:price) 
+# end
+
 end

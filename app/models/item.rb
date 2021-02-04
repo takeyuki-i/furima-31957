@@ -6,8 +6,9 @@ belongs_to :state
 belongs_to :delivery_fee
 belongs_to :delivery_area
 belongs_to :delivery_time
+has_one_attached :image
 
-validates :item_name        , :string , presence: true
+validates :name             , :string , presence: true
 validates :text             , :text   , presence: true
 validates :category_id      , numericality: { other_than: 1 }
 validates :state_id         , numericality: { other_than: 1 }
