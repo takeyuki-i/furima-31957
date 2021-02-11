@@ -16,7 +16,7 @@ validates :state_id
 validates :delivery_fee_id
 validates :delivery_area_id
 validates :delivery_time_id
-validates :price
+validates :price , numericality: true , format: { with: /[0-9]/ }
 end
 
 with_options numericality: { other_than: 1 } do
@@ -26,5 +26,9 @@ validates :delivery_fee_id
 validates :delivery_area_id
 validates :delivery_time_id
 end
+
+validates :price  , numericality: {greater_than_or_equal_to: 300}
+validates :price  , numericality: {less_than_or_equal_to: 9999999 }
+
 
 end
