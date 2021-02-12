@@ -88,7 +88,7 @@ RSpec.describe '商品出品機能', type: :model do
         expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
       end
       it '価格は半角数字でないと登録できない' do
-        @item.price = '１００００'
+        @item.price = '１０００００'
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is not a number", "Price is not a number", "Price is not a number")
       end
