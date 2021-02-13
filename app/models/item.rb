@@ -11,7 +11,7 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :text
-    validates :price, numericality: true, format: { with: /[0-9]/ }
+    validates :price, numericality: true
   end
 
   with_options numericality: { other_than: 1 } do

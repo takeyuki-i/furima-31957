@@ -50,8 +50,7 @@ RSpec.describe '商品出品機能', type: :model do
       it '価格が無いと登録できない' do
         @item.price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price can't be blank", 'Price is not a number', 'Price is invalid',
-                                                      'Price is not a number', 'Price is not a number')
+        expect(@item.errors.full_messages).to include("Price can't be blank", "Price is not a number", "Price is not a number", "Price is not a number")
       end
       it '価格が300未満だと登録できない' do
         @item.price = 299
