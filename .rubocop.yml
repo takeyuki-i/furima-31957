@@ -8,7 +8,9 @@ AllCops:
    - "bin/*"
    - "node_modules/**/*"
    - "Gemfile"
-
+   - "spec/factories/items.rb"
+   - "spec/factories/users.rb"
+   - "faker"
 
 # 1行あたりの文字数をチェックする
 Layout/LineLength:

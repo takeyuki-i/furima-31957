@@ -5,13 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   with_options presence: true do
-  validates :nickname
-  validates :password , format: { with: /[a-zA-Z]{1,}+[0-9]{1,}/ }
-  validates :first_name , format: { with: /\A[ぁ-んァ-ン一-龥々]/ }
-  validates :last_name , format: { with: /\A[ぁ-んァ-ン一-龥々]/ }
-  validates :first_name_kana , format: { with: /\A[ァ-ヶー－]+\z/ }
-  validates :last_name_kana , format: { with: /\A[ァ-ヶー－]+\z/ }
-  validates :birthday
+    validates :nickname
+    validates :password, format: { with: /[a-zA-Z]{1,}+[0-9]{1,}/ }
+    validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥々]/ }
+    validates :last_name, format: { with: /\A[ぁ-んァ-ン一-龥々]/ }
+    validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
+    validates :last_name_kana, format: { with: /\A[ァ-ヶー－]+\z/ }
+    validates :birthday
   end
 
+  has_many :items
 end
