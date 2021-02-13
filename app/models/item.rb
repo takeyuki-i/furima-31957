@@ -11,11 +11,6 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :text
-    validates :category_id
-    validates :state_id
-    validates :delivery_fee_id
-    validates :delivery_area_id
-    validates :delivery_time_id
     validates :price, numericality: true, format: { with: /[0-9]/ }
   end
 
