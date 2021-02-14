@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!, only: [:new ,:create,:edit,:destroy]
   before_action :devise_parameters, if: :devise_controller?
 
   private
