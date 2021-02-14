@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
 
   def index
+<<<<<<< Updated upstream
     @items = Item.all.order("created_at DESC")
+=======
+    @itme = Item.all
+>>>>>>> Stashed changes
   end
 
   def new
