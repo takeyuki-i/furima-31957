@@ -1,11 +1,6 @@
 class ItemsController < ApplicationController
-
   def index
-<<<<<<< Updated upstream
-    @items = Item.all.order("created_at DESC")
-=======
-    @itme = Item.all
->>>>>>> Stashed changes
+    @items = Item.all.order('created_at DESC')
   end
 
   def new
@@ -27,5 +22,4 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:image, :name, :text, :category_id, :state_id, :delivery_fee_id, :delivery_area_id,
                                  :delivery_time_id, :price).merge(user_id: current_user.id)
   end
-
 end

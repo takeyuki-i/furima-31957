@@ -10,6 +10,8 @@ AllCops:
    - "Gemfile"
    - "spec/factories/items.rb"
    - "spec/factories/users.rb"
+   - "spec/models/item_spec.rb"
+   - "spec/models/user_spec.rb"
    - "faker"
 
 # 1行あたりの文字数をチェックする
