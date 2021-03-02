@@ -7,6 +7,7 @@ class CreateInformation < ActiveRecord::Migration[6.0]
       t.string :addres1 , null:false
       t.string :addres2
       t.string :tell_num , null:false
+      t.references :order ,null:false ,foreign_key: true
       t.timestamps
     end
   end

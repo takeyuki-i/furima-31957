@@ -13,6 +13,7 @@ class ProductBuy
 
   def save
     # 各テーブルにデータを保存する処理を書く
+    Information.create(zip_code: zip_code,state_id: state_id,city: city,addres1:addres1,addres2:addres2,tell_num:tell_num)
 
   end
 end
