@@ -1,19 +1,18 @@
 class ProductBuy
   include ActiveModel::Model
-  attr_accessor :zip_code,:state_id,:city,:addres1,:addres2,:tell_num
+  attr_accessor :number, :exp_month, :exp_year, :cvc, :zip_code,:delivery_area_id,:city,:addres1,:addres2,:tell_num,:item_id,:user_id
 
   with_options presence: true do
-    validates :zip_code , format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "Zip code can't be blank" }
-    validates :city
+    validates :zip_code , format: { with: /\A\d{3}[-]\d{4}\z/ }
+    validates :city  , format: { with: /\A[ぁ-んァ-ン一-龥々]/ }
     validates :addres1
-    validates :tell_num , format: { with: /\A[0-9]\z/, message: "Phone number Input only number" }
+    validates :tell_num , format: { with: /\A[0-9]+\z/ }
   end
-  validates :state_id , numericality: { other_than: 0, message: "Prefecture Select" }
-
+  validates :delivery_area_id , numericality: { other_than: 1 }
 
   def save
     # 各テーブルにデータを保存する処理を書く
-    Information.create(zip_code: zip_code,state_id: state_id,city: city,addres1:addres1,addres2:addres2,tell_num:tell_num)
-
+    order = Order.create(item_id: item_id,user_id: user_id)
+    Information.create(zip_code: zip_code,delivery_area_id: delivery_area_id,city: city,addres1: addres1,addres2: addres2,tell_num: tell_num,order_id: order.id)
   end
 end

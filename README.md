@@ -52,15 +52,15 @@
 
 ## informations テーブル
 
-| Column        | Type       | Options                         |
-| ------------- | ---------- | ------------------------------- |
-| zip_code      | string     | null: false                     |
-| state_id      | integer    | null: false                     |
-| city          | string     | null: false                     |
-| addres1       | string     | null: false                     |
-| addres2       | string     |                                 |
-| tell_num      | string     | null: false                     |
-| order         | references | null: false , foreign_key: true |
+| Column           | Type       | Options                         |
+| ---------------- | ---------- | ------------------------------- |
+| zip_code         | string     | null: false                     |
+| delivery_area_id | integer    | null: false                     |
+| city             | string     | null: false                     |
+| addres1          | string     | null: false                     |
+| addres2          | string     |                                 |
+| tell_num         | string     | null: false                     |
+| order            | references | null: false , foreign_key: true |
 
 ### Association
 
