@@ -12,6 +12,16 @@ RSpec.describe ProductBuy, type: :model do
       end
     end
     context '商品出品がうまくいかないとき' do
+      it "priceが空では登録できないこと" do
+        @product_buy.price = nil
+        @product_buy.valid?
+        expect(@product_buy.errors.full_messages).to include("Price can't be blank")
+      end
+      it "tokenが空では登録できないこと" do
+        @product_buy.token = nil
+        @product_buy.valid?
+        expect(@product_buy.errors.full_messages).to include("Token can't be blank")
+      end
       it '郵便番号が無いと登録出来ない' do
         @product_buy.zip_code = nil
         @product_buy.valid?
@@ -55,8 +65,3 @@ RSpec.describe ProductBuy, type: :model do
     end
   end
 end
-
-# number            { 111111111111 }
-# exp_month         { 12 }
-# exp_year          { 25 }
-# cvc               { 1234 }

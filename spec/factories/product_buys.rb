@@ -1,9 +1,7 @@
 FactoryBot.define do
   factory :product_buy do
-    number            { 111111111111 }
-    exp_month         { 12 }
-    exp_year          { 25 }
-    cvc               { 1234 }
+    price             { 60000 }
+    token             { "tok_abcdefghijk00000000000000000" }
     zip_code          { '111-1111' }
     delivery_area_id  { 2 }
     city              { 'さいたま市' }
