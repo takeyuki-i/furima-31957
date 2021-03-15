@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :product_buy do
-    price             { 60000 }
-    token             { "tok_abcdefghijk00000000000000000" }
+    price             { 60_000 }
+    token             { 'tok_abcdefghijk00000000000000000' }
     zip_code          { '111-1111' }
     delivery_area_id  { 2 }
     city              { 'さいたま市' }
