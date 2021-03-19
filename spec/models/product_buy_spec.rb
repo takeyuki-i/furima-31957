@@ -10,6 +10,10 @@ RSpec.describe ProductBuy, type: :model do
       it '全ての値が正しく入力されていれば登録出来る' do
         expect(@product_buy).to be_valid
       end
+      it 'ビル名は空欄でも登録が出来る' do
+        @product_buy.addres2 = ''
+        expect(@product_buy).to be_valid
+      end
     end
     context '商品出品がうまくいかないとき' do
       it 'priceが空では登録できないこと' do
@@ -61,6 +65,21 @@ RSpec.describe ProductBuy, type: :model do
         @product_buy.tell_num = '090123456789'
         @product_buy.valid?
         expect(@product_buy.errors.full_messages).to include('Tell num is too long (maximum is 11 characters)')
+      end
+      it '電話番号が英数混合では登録出来ない' do
+        @product_buy.tell_num = '090eeee5678'
+        @product_buy.valid?
+        expect(@product_buy.errors.full_messages).to include("Tell num is invalid")
+      end
+      it 'user_idが空であると登録できない' do
+        @product_buy.user_id = ''
+        @product_buy.valid?
+        expect(@product_buy.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空であると登録できない' do
+        @product_buy.item_id = ''
+        @product_buy.valid?
+        expect(@product_buy.errors.full_messages).to include("Item can't be blank")
       end
     end
   end

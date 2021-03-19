@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :product_buy do
-    price             { 60_000 }
+    price             { 60000 }
     token             { 'tok_abcdefghijk00000000000000000' }
     zip_code          { '111-1111' }
     delivery_area_id  { 2 }
@@ -8,5 +8,7 @@ FactoryBot.define do
     addres1           { '大宮1-1' }
     addres2           { '大宮ビル' }
     tell_num          { '09012345678' }
+    user_id           { 1 }
+    item_id           { 1 }
   end
 end

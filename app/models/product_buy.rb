@@ -9,6 +9,8 @@ class ProductBuy
     validates :city, format: { with: /\A[ぁ-んァ-ン一-龥々]/ }
     validates :addres1
     validates :tell_num, format: { with: /\A[0-9]+\z/ }, length: { maximum: 11 }
+    validates :user_id
+    validates :item_id
   end
   validates :delivery_area_id, numericality: { other_than: 1 }
 
