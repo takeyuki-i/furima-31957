@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_order
   before_action :move_to_index
+  before_action :check_move_index
 
   def index
     @product_buy = ProductBuy.new
@@ -34,13 +35,17 @@ class OrdersController < ApplicationController
     redirect_to root_path if current_user.id == @item.user_id
   end
 
+  def check_move_index
+    @check_buy = @item.order.present?
+    redirect_to root_path if @check_buy == true
+  end
+
   def pay_item
-     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-     Payjp::Charge.create(
-       amount: info_params[:price],
-       card: info_params[:token],
-       currency: 'jpy'
-     )
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp::Charge.create(
+      amount: info_params[:price],
+      card: info_params[:token],
+      currency: 'jpy'
+    )
   end
 end
-

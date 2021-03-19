@@ -14,6 +14,7 @@ class ProductBuy
 
   def save
     order = Order.create(item_id: item_id, user_id: user_id)
-    Information.create(zip_code: zip_code, delivery_area_id: delivery_area_id, city: city, addres1: addres1, addres2: addres2,tell_num: tell_num, order_id: order.id)
+    Information.create(zip_code: zip_code, delivery_area_id: delivery_area_id, city: city, addres1: addres1, addres2: addres2,
+                       tell_num: tell_num, order_id: order.id)
   end
 end

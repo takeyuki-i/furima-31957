@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order('created_at DESC')
+    @order = Order.includes(:item)
   end
 
   def new
@@ -21,6 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    check_buy
   end
 
   def edit
@@ -35,16 +37,14 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.destroy
-    redirect_to root_path
-    end
+    redirect_to root_path if @item.destroy
   end
 
   private
 
   def item_params
-    params.require(:item).permit(:image, :name, :text, :category_id, :state_id, :delivery_fee_id, :delivery_area_id,
-                                 :delivery_time_id, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :name, :text, :category_id, :state_id, :delivery_fee_id,
+                                 :delivery_area_id, :delivery_time_id, :price).merge(user_id: current_user.id)
   end
 
   def set_item
@@ -55,4 +55,8 @@ class ItemsController < ApplicationController
     redirect_to root_path unless current_user.id == @item.user_id
   end
 
+  def check_buy
+    @item = Item.find(params[:id])
+    @check_buy = @item.order.present?
+  end
 end
