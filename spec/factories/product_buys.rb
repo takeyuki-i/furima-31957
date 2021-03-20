@@ -8,7 +8,7 @@ FactoryBot.define do
     addres1           { '大宮1-1' }
     addres2           { '大宮ビル' }
     tell_num          { '09012345678' }
-    user_id           { 1 }
-    item_id           { 1 }
+    user_id           {   }
+    item_id           {   }
   end
 end
